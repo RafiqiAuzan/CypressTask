@@ -62,7 +62,7 @@
                                                 {{ $journal->created_at }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="#" class="btn btn-sm btn-danger"
+                                                <a href="#" class=" bg-red-400 text-white p-1 rounded-lg"
                                                     onclick="
                                                         event.preventDefault();
                                                         if (confirm('Do you want to remove this?')) {
