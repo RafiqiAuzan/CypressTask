@@ -1,5 +1,6 @@
 <?php
-
+namespace App\Http\JournalController;
+use App\Http\Controllers\JournalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::apiResource('journals', JournalController::class);
+
+Route:: get ('/hello', function() {
+    $data = ["message" => "Hello World"];
+    return response()->json($data, 200);
 });

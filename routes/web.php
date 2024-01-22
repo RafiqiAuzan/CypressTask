@@ -1,5 +1,8 @@
 <?php
 
+
+namespace App\Http\Controllers;
+use App\Http\Controllers\JournalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [JournalController::class, 'index'])->name('journals.index');
+Route::post('journals', [JournalController::class, 'store'])->name('journals.store');
+Route::delete('/journals/{id}', [JournalController::class, 'destroy'])->name('journals.destroy');
+
+// Route::get('/',  function () {
+//     return view('JournalList');
+// });
+
+Route::get('/journal-add', function () {
+    return view('JournalAdd');
+});
+
+Route::get('/journal-detail', function () {
+    return view('JournalDetail');
+});
+
+Route::get('/journal-edit', function () {
+    return view('JournalEdit');
 });
