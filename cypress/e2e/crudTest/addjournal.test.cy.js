@@ -3,11 +3,11 @@ import 'cypress-file-upload';
 
 describe('Journal Form Submission', () => {
   Cypress.Commands.add('uploadFile', (fileName) => {
-    cy.fixture(fileName, 'base64').then(fileContent => {
+    cy.fixture(fileName, 'base64', null).then(fileContent => {
       cy.get('input[name="journal_file"]').attachFile({
         fileContent: fileContent,
         fileName: fileName,
-        mimeType: 'pdf',
+        mimeType: 'application/pdf',
       });
     });
   });
@@ -26,7 +26,7 @@ describe('Journal Form Submission', () => {
     cy.get('textarea[name="journal_desc"]').type(journalDesc);
 
     // Panggil fungsi uploadFile
-    cy.uploadFile('Testfile.pdf');
+    cy.uploadFile("Testfile.pdf");
 
     // Kirim formulir
     cy.get('button[type="submit"]').click();

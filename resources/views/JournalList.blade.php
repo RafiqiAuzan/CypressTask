@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Cypress Task</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href={{asset('fontawesome-free-6.6.0-web/css/all.min.css')}} rel="stylesheet" />
     @vite('resources/css/app.css')
 
     <!-- Styles -->
@@ -26,7 +27,7 @@
                     <a
                         class="block ml-[394px] w-32 text-center p-2 mt-20 mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                         href="/journal-add">
-                        Add Journal
+                        <i class="fa-solid fa-plus"></i>
                     </a>
                     <div class="">
                         <div class="mx-auto  w-[750px] relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -61,14 +62,14 @@
                                             <td class="px-6 py-4">
                                                 {{ $journal->created_at }}
                                             </td>
-                                            <td class="px-6 py-4">
+                                            <td class="px-6 py-4 flex gap-3">
                                                 <a href="#" class=" bg-red-400 text-white p-1 rounded-lg"
                                                     onclick="
                                                         event.preventDefault();
                                                         if (confirm('Do you want to remove this?')) {
                                                         document.getElementById('delete-row-{{ $journal->id }}').submit();
                                                         }">
-                                                    delete
+                                                    <i class="fa-regular fa-trash-can"></i>
                                                 </a>
                                                 <form id="delete-row-{{ $journal->id }}"
                                                     action="{{ route('journals.destroy', ['id' => $journal->id]) }}"
@@ -76,6 +77,7 @@
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     @csrf
                                                 </form>
+                                                <i class="fa-solid fa-pen-to-square"></i>
                                             </td>
                                         </tr>
                                     @endforeach
