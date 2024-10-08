@@ -20,12 +20,12 @@
 </head>
 
 <body class="antialiased">
-    <div class="bg-[#DDE6ED] h-screen">
+    <div class="bg-[#2F3645] h-screen">
         <section class="">
             <div class="">
                 <div class="container mx-auto pt-16">
                     <a
-                        class="block ml-[394px] w-32 text-center p-2 mt-20 mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                        class="block ml-[394px] w-10 text-center p-1 mb-2 text-white bg-[#667c87] hover:bg-[#495961] font-medium rounded-lg"
                         href="/journal-add">
                         <i class="fa-solid fa-plus"></i>
                     </a>
@@ -33,7 +33,7 @@
                         <div class="mx-auto  w-[750px] relative overflow-x-auto shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                 <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    class="text-xs text-white uppercase bg-gray-700">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Title
@@ -62,8 +62,8 @@
                                             <td class="px-6 py-4">
                                                 {{ $journal->created_at }}
                                             </td>
-                                            <td class="px-6 py-4 flex gap-3">
-                                                <a href="#" class=" bg-red-400 text-white p-1 rounded-lg"
+                                            <td class="py-4 flex gap-4">
+                                                <a href="#" class=" bg-[#712c2c] text-white py-1 px-2 rounded-lg"
                                                     onclick="
                                                         event.preventDefault();
                                                         if (confirm('Do you want to remove this?')) {
@@ -77,7 +77,10 @@
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     @csrf
                                                 </form>
-                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                <a href="#" class="bg-[#667c87] text-white py-1 px-2 rounded-lg">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                
                                             </td>
                                         </tr>
                                     @endforeach
